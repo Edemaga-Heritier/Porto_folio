@@ -1,36 +1,49 @@
-import NavBar from "./NavBar"
+import { useState } from 'react'
+import { Menu,X } from 'lucide-react'
+import NavLink from './NavLink'
+import SocialLink from './socialLink'
+
+         
 
 
-const Header = () =>{
-return(
-  <header className="fixed top-0 w-full h-20 left-0 flex items-center z-40 bg-gradient-to-b from-zinc-900 to-zinc-900/0">
-    <div className="max-w-screen-2xl w-full mx-auto px-4 flex justify-between items-center md:px-6 md:grid-cols-[1fr,3fr,1fr]" >
-      <h1>
-        <a href="/" className="logo">
-        <img src="" alt="Edems"  width={40} height={40}/>
-        </a>
-      </h1>
-      <div className="relative md:justify-self-center">
-        <button className="menu-btn md:hidden" onClick={null}>
-          <span className="matrial symbols-rounded">menu</span>
-        </button>
-      </div>
-      <NavBar />
-   <a href="#contact"className="">
-     Contact
-   </a>
 
-       
-      
+export default function Header() {
+  const[isMenuOpen,setMenuOpen]= useState(false)
+  return (
+    <header className='flex w-full bg-white/80 z-50 backdrop-blur-md shadow-sm'>
+      <nav className=' container mx-auto px-6 py-4 '>
+        <div className='flex justify-between items-center'>
+          <a href="#home" className=' font-bold text-gray-800 text-4xl'> Porto Folio</a>
 
+        </div>
 
-    </div>
+ {/* Desktop */}
+        <div className=' hidden md:flex items-center space-x-8'>
+          <NavLink/>
+          <SocialLink/>
+         
 
-  </header>
-)
+        </div>
+         {/* Mobile Menu Button */}
+         <button className=' md:hidden' onClick={() =>setMenuOpen(!isMenuOpen)} aria-label='Toggle menu'>
+          
+{isMenuOpen ? <X size={24}/> : <Menu size={24}/>}
+         </button>
 
+{/* Mobile Navigation */}
+{isMenuOpen && (
+          <div className="md:hidden py-4">
+            <div className="flex flex-col space-y-4">
+              <NavLink />
+              <div className="flex justify-center space-x-6 pt-4">
+                <SocialLink />
+              </div>
+            </div>
+          </div>
+        )}
 
+      </nav>
+
+    </header>
+  )
 }
-
-
-export default Header

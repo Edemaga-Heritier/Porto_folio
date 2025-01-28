@@ -1,8 +1,9 @@
-import React from 'react';
+
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = () => {
+    // eslint-disable-next-line no-undef
     e.preventDefault();
     // Handle form submission
   };
@@ -88,7 +89,7 @@ const Contact = () => {
   );
 };
 
-const ContactInfo = ({ icon, title, content }: { icon: React.ReactNode; title: string; content: string }) => (
+const ContactInfo = ({ icon, title, content }) => (
   <div className="flex items-center gap-4">
     <div className="text-blue-600">
       {icon}

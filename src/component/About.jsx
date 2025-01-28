@@ -1,6 +1,4 @@
-import React from 'react'
 
-import React from 'react';
 import { Code, Server, Palette } from 'lucide-react';
 
 const About = () => {
@@ -48,7 +46,8 @@ const About = () => {
   );
 };
 
-const Skill = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => (
+// eslint-disable-next-line react/prop-types
+const Skill = ({ icon, title, description }) => (
   <div className="flex items-start gap-4">
     <div className="p-2 bg-blue-100 rounded-lg text-blue-600">
       {icon}

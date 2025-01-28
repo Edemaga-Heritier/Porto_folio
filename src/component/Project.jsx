@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const Projects = () => {
   return (
@@ -17,16 +17,16 @@ const Projects = () => {
   );
 };
 
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  demoUrl: string;
-  githubUrl: string;
-}
+// interface Project {
+//   title: string;
+//   description: string;
+//   image: string;
+//   tags: string[];
+//   demoUrl: string;
+//   githubUrl: string;
+// }
 
-const projects: Project[] = [
+const projects= [
   {
     title: "E-commerce Platform",
     description: "Une plateforme e-commerce complète avec panier et paiement",
@@ -53,7 +53,8 @@ const projects: Project[] = [
   }
 ];
 
-const ProjectCard = ({ title, description, image, tags, demoUrl, githubUrl }: Project) => (
+// eslint-disable-next-line react/prop-types
+const ProjectCard = ({ title, description, image, tags, demoUrl }) => (
   <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:-translate-y-1">
     <img src={image} alt={title} className="w-full h-48 object-cover" />
     <div className="p-6">
@@ -79,7 +80,7 @@ const ProjectCard = ({ title, description, image, tags, demoUrl, githubUrl }: Pr
           <ExternalLink size={16} />
           Demo
         </a>
-        <a
+        {/* <a
           href={githubUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -87,7 +88,7 @@ const ProjectCard = ({ title, description, image, tags, demoUrl, githubUrl }: Pr
         >
           <Github size={16} />
           Code
-        </a>
+        </a> */}
       </div>
     </div>
   </div>
